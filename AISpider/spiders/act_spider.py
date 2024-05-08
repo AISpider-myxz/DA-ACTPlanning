@@ -103,24 +103,26 @@ class ACTSpider(scrapy.Spider):
             item["block"] = data["BLOCK"]
             item["organisation"] = data["COMPANYORG_NAME"]
             item["stage"] = data["DA_STAGE"]
-            try:
-                lodged_date = data["LODGEMENT_DATE"]
-                item['lodgement_date'] = lodged_date if lodged_date else 0
-            except:
-                item['lodgement_date'] = 0
-            try:
-                lodged_date = data["DATE_END"]
-                item['start_date'] = lodged_date if lodged_date else 0
-            except:
-                item['start_date'] = 0
-            try:
-                lodged_date = data["DATE_END"]
-                item['end_date'] = lodged_date if lodged_date else 0
-            except:
-                item['end_date'] = 0
-            #item["lodgement_date"] = self.ts_to_date(data["LODGEMENT_DATE"]) if data["LODGEMENT_DATE"] else ''
-            #item["start_date"] = self.ts_to_date(data["DATE_START"]) if data["DATE_START"] else ''
-            #item["end_date"] = self.ts_to_date(data["DATE_END"]) if data["DATE_END"] else ''
+            # 1701187200
+            # 1714348800000
+            # try:
+            #     lodged_date = data["LODGEMENT_DATE"]/1000
+            #     item['lodgement_date'] = lodged_date if lodged_date else 0
+            # except:
+            #     item['lodgement_date'] = 0
+            # try:
+            #     lodged_date = data["DATE_END"]/1000
+            #     item['start_date'] = lodged_date if lodged_date else 0
+            # except:
+            #     item['start_date'] = 0
+            # try:
+            #     lodged_date = data["DATE_END"]/1000
+            #     item['end_date'] = lodged_date if lodged_date else 0
+            # except:
+            #     item['end_date'] = 0
+            # item["lodgement_date"] = self.ts_to_date(data["LODGEMENT_DATE"]) if data["LODGEMENT_DATE"] else ''
+            # item["start_date"] = self.ts_to_date(data["DATE_START"]) if data["DATE_START"] else ''
+            # item["end_date"] = self.ts_to_date(data["DATE_END"]) if data["DATE_END"] else ''
             item["application_amended"] = data["APPLICATION_AMENDED"]
             item["documents"] = self.get_docs(da_number)
             item['metadata']={}

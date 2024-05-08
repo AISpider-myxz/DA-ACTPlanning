@@ -31,7 +31,7 @@ class ACTSpider(scrapy.Spider):
 
         },
         "ITEM_PIPELINES": {
-            "AISpider.pipelines.FieldsPipline": 200,
+            #"AISpider.pipelines.FieldsPipline": 200,
             "AISpider.pipelines.MysqlScrapyPipeline": 300,
             # "AISpider.pipelines.MongodbPipline":299
             # 'scrapy_redis.pipelines.RedisPipeline': 300

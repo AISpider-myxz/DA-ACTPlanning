@@ -122,25 +122,25 @@ class MysqlScrapyPipeline(object):
             cursor.execute(sql_string)
             return cursor.fetchall()
 
-class FieldsPipline(object):
+# class FieldsPipline(object):
 
-    def process_item(self, item, spider):
-        fields_saved = item.get_save_fields()
-        path_dir = f'media/{spider.name}/fields'
-        file_name = f"{get_shot_uuid()}_{str(time.time()).replace('.', '')}.json"
-        if not fields_saved:
-            return item
-        path = Path(__file__).parent / path_dir
-        if not path.exists():
-            os.makedirs(path, exist_ok=True)
-        item_dict = {}
-        for field in fields_saved:
-            val = item.get(field)
-            if val:
-                item_dict[field] = val
-                item[field] = f'{path_dir}/{file_name}'
-        if not item_dict:
-            return item
-        with open(path / file_name, 'w') as f:
-            json.dump(item_dict, f)
-        return item
+#     def process_item(self, item, spider):
+#         fields_saved = item.get_save_fields()
+#         path_dir = f'media/{spider.name}/fields'
+#         file_name = f"{get_shot_uuid()}_{str(time.time()).replace('.', '')}.json"
+#         if not fields_saved:
+#             return item
+#         path = Path(__file__).parent / path_dir
+#         if not path.exists():
+#             os.makedirs(path, exist_ok=True)
+#         item_dict = {}
+#         for field in fields_saved:
+#             val = item.get(field)
+#             if val:
+#                 item_dict[field] = val
+#                 item[field] = f'{path_dir}/{file_name}'
+#         if not item_dict:
+#             return item
+#         with open(path / file_name, 'w') as f:
+#             json.dump(item_dict, f)
+#         return item

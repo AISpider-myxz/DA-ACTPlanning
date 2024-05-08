@@ -21,4 +21,3 @@ class ACTItem(BaseItem):
     class Meta:
         table = 'act'
         unique_fields = ['da_number']
-        saved_fields = ['documents']

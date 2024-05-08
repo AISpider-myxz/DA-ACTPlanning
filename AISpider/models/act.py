@@ -13,7 +13,7 @@ class ACT(Base):
     suburb = Column(String(255),nullable=True, server_default=None)
     section = Column(String(255),nullable=True, server_default=None)
     block = Column(String(255),nullable=True, server_default=None)
-    organiion = Column(String(255),nullable=True, server_default=None)
+    organisation = Column(String(255),nullable=True, server_default=None)
     stage = Column(String(255),nullable=True, server_default=None)
     lodgement_date = Column(Integer,nullable=True)
     start_date = Column(Integer,nullable=True,)

@@ -106,17 +106,17 @@ class ACTSpider(scrapy.Spider):
             # 1701187200
             # 1714348800000
             try:
-                lodged_date = data["LODGEMENT_DATE"]
+                lodged_date = int(data["LODGEMENT_DATE"]/1000)
                 item['lodgement_date'] = lodged_date if lodged_date else 0
             except:
                 item['lodgement_date'] = 0
             try:
-                lodged_date = data["DATE_END"]
+                lodged_date = int(data["DATE_END"]/1000)
                 item['start_date'] = lodged_date if lodged_date else 0
             except:
                 item['start_date'] = 0
             try:
-                lodged_date = data["DATE_END"]
+                lodged_date = int(data["DATE_END"]/1000)
                 item['end_date'] = lodged_date if lodged_date else 0
             except:
                 item['end_date'] = 0

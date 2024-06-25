@@ -42,11 +42,11 @@ def get_shot_uuid(n=63):
 class MysqlScrapyPipeline(object):
 
         def __init__(self,):  
-            self.db = pymysql.connect(host='192.168.0.110',
-                        user='root',
-                        password='123456',
-                        database='spider',
-                        port=13306)
+            self.db = pymysql.connect(host='hubre-database.mysql.database.azure.com',
+                        user='hubre_db_manager',
+                        password='8aB7xY3sD5J',
+                        database='hubre_spider',
+                        port=3306)
         
             self.cursor = self.db.cursor()
 
